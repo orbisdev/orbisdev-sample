@@ -21,4 +21,4 @@ oelf:
 pkg:
 	cp liborbis.elf /Users/bigboss/Downloads/sce/orbisdev505/tauon/sample/orbislinknfs/liborbis/bin/
 eboot:
-	python $(PS4SDK)/bin/make_fself.py --auth-info $(AUTH_INFO) bin/homebrew.oelf bin/homebrew.self
+	python $(ORBISDEV)/bin/make_fself.py --auth-info $(AUTH_INFO) bin/homebrew.oelf bin/homebrew.self
