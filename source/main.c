@@ -283,7 +283,7 @@ bool initApp()
 {
 	//orbisNfsInit(NFSEXPORT);
 	//orbisFileInit();
-	int ret=initOrbisLinkAppJander();
+	int ret=initOrbisLinkApp();
 
 	sceSystemServiceHideSplashScreen();
 	
