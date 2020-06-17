@@ -18,7 +18,9 @@ oelf:
 	touch liborbis.elf
 	@rm liborbis.elf
 	orbis-elf-create bin/homebrew.elf bin/homebrew.oelf
-pkg:
-	cp liborbis.elf /Users/bigboss/Downloads/sce/orbisdev505/tauon/sample/orbislinknfs/liborbis/bin/
 eboot:
 	python $(ORBISDEV)/bin/make_fself.py --auth-info $(AUTH_INFO) bin/homebrew.oelf bin/homebrew.self
+pkg:
+        @cp bin/homebrew.self pkg/eboot.bin
+        @cd pkg
+        pkgTool pkg_build Project.gp4 .
