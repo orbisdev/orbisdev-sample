@@ -16,10 +16,13 @@ jobs:
     - name: Install dependencies
       run: |
         apk add clang make bash python2
+        apk add libintl icu-dev wget
+        wget https://dot.net/v1/dotnet-install.sh && chmod 755 dotnet-install.sh && ./dotnet-install.sh -c Current --install-dir ~/cli
 
     - name: Compile Sample App
       run: |
-        make clean all oelf eboot
+        export PATH=~/cli:$PATH # .net cli
+        make clean all oelf eboot 
 
     - name: Get short SHA
       id: slug
