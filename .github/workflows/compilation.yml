@@ -17,7 +17,7 @@ jobs:
       run: |
         apk add clang make bash python2
         apk add libintl icu-dev wget
-        wget https://dot.net/v1/dotnet-install.sh && chmod 755 dotnet-install.sh && ./dotnet-install.sh -c Current --install-dir ~/cli
+        wget https://dot.net/v1/dotnet-install.sh && chmod 755 dotnet-install.sh && ./dotnet-install.sh -c 3.0 --install-dir ~/cli
 
     - name: Compile Sample App
       run: |
