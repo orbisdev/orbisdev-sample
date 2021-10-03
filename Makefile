@@ -4,7 +4,6 @@ endif
 
 target ?= ps4_elf_sce
 TargetFile=homebrew.elf
-Linker = clang -v
 
 include $(ORBISDEV)/make/ps4sdk.mk
 LinkerFlags+=  -lkernel_stub  -lSceLibcInternal_stub  -lSceSysmodule_stub -lSceSystemService_stub -lSceNet_stub -lSceUserService_stub -lScePigletv2VSH_stub -lSceVideoOut_stub -lSceGnmDriver_stub -lorbisGl2 -lorbis -lScePad_stub -lSceAudioOut_stub -lSceIme_stub  
