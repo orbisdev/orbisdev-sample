@@ -16,7 +16,7 @@ jobs:
     - name: Install dependencies
       run: |
         apk add ncurses-dev make bash python2
-        apk add libintl icu-dev wget
+        apk add libintl icu-dev wget tree
         wget https://dot.net/v1/dotnet-install.sh && chmod 755 dotnet-install.sh && ./dotnet-install.sh -c 3.0 --install-dir ~/cli
 
     - name: Compile Sample App
@@ -36,3 +36,8 @@ jobs:
       with:
         name: bin-${{ steps.slug.outputs.sha8 }}-${{matrix.os}}
         path: bin.tar.gz
+    
+    - name: Print content of ORBISDEV
+      run: |
+        tree $ORBISDEV
+
