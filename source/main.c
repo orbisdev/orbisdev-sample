@@ -1,14 +1,21 @@
-
-
 #include <stdio.h>
+#include <user_mem.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ps4sdk.h>
+#include <orbisdev.h>
 #include <orbislink.h>
-#include <orbisGl2.h>
 #include <unistd.h>
 #include <stdarg.h>
 #include <sys/stat.h>
+#include <signal.h>
+#include <debugnet.h>
+#include <fcntl.h>
+#include <orbisNfs.h>
+#include <sqlite3.h>
+#include <raylib.h>
+
+#define ATTR_ORBISGL_WIDTH 1920 
+#define ATTR_ORBISGL_HEIGHT 1080
 
 
 OrbisPadConfig *confPad;
@@ -440,22 +447,22 @@ int main(int argc, char *argv[])
 	}
 
 	browserTexture=LoadTexture(BROWSER_BACKGROUND_FILE_PATH);
-	SetTextureFilter(browserTexture, FILTER_BILINEAR);
+	SetTextureFilter(browserTexture, TEXTURE_FILTER_BILINEAR);
 	folderTexture=LoadTexture(FOLDER_ICON_PATH);
-	SetTextureFilter(folderTexture, FILTER_BILINEAR);
+	SetTextureFilter(folderTexture, TEXTURE_FILTER_BILINEAR);
 	debugNetPrintf(DEBUGNET_INFO,"[ORBISGL] id=%d width=%d height=%d %s\n",folderTexture.id,folderTexture.width,folderTexture.height,FOLDER_ICON_PATH);
 
 	fileTexture=LoadTexture(FILE_ICON_PATH);
-	SetTextureFilter(fileTexture, FILTER_BILINEAR);
+	SetTextureFilter(fileTexture, TEXTURE_FILTER_BILINEAR);
 	debugNetPrintf(DEBUGNET_INFO,"[ORBISGL] id=%d width=%d height=%d %s\n",fileTexture.id,fileTexture.width,fileTexture.height,FILE_ICON_PATH);
 
 	settingsTexture=LoadTexture(SETTINGS_BACKGROUND_FILE_PATH);
 	creditsTexture=LoadTexture(CREDITS_BACKGROUND_FILE_PATH);
-	SetTextureFilter(creditsTexture, FILTER_BILINEAR);
+	SetTextureFilter(creditsTexture, TEXTURE_FILTER_BILINEAR);
 	debugNetPrintf(DEBUGNET_INFO,"[ORBISGL] textures loaded\n");
 
 	font=LoadFont("system/fonts/Tahoma_bold.ttf");
-	SetTextureFilter(font.texture, FILTER_BILINEAR);
+	SetTextureFilter(font.texture, TEXTURE_FILTER_BILINEAR);
 	debugNetPrintf(DEBUGNET_INFO,"[ORBISGL] font loaded\n");
 
 	SetTargetFPS(60);// Set our game to run at 60 frames-per-second
