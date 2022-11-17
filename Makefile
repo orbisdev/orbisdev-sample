@@ -21,7 +21,7 @@ eboot:
 pkg_build:
 	gp4gen \
 		--content-id IV0003-BIGB00004_00-ORBISLINK0000000 \
-		--files sce_sys/param.sfo,sce_sys/pic1.png,sce_sys/icon0.png,sce_sys/pic0.png,eboot.bin \
+		--files eboot.bin,sce_sys/param.sfo,sce_sys/pic1.png,sce_sys/icon0.png,sce_sys/pic0.png \
 		--gp4-filename pkg/Project.gp4
 	cat pkg/Project.gp4
 	cp bin/homebrew.self pkg/eboot.bin && cd pkg && pkgTool pkg_build Project.gp4 . && cp *.pkg ../bin/
